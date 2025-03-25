@@ -299,6 +299,8 @@ const PlanetInfoSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    max-width: 154rem;
+    margin: auto;
   }
 `;
 
@@ -340,11 +342,12 @@ const FilterSectionTablet = styled.div`
   @media only screen and (min-width: 48rem) {
     display: flex;
     flex-direction: column;
-    width: 28.1rem;
+    max-width: 28.1rem;
     gap: 1.6rem;
   }
 
   @media only screen and (min-width: 48rem) {
+    max-width: unset;
     width: 100%;
     gap: 1.6rem;
   }
@@ -355,7 +358,10 @@ const TextFilter = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: auto;
     margin-top: 13rem;
+    gap: 2rem;
+    max-width: 71rem;
   }
 
   @media only screen and (min-width: 90rem) {
@@ -367,6 +373,10 @@ const TextFilter = styled.div`
 `;
 
 const Wrap = styled.div`
+  @media only screen and (min-width: 48rem) {
+    margin-bottom: 9.6rem;
+  }
+
   @media only screen and (min-width: 90rem) {
     display: flex;
     align-items: center;

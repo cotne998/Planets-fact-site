@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Hamburger from "/assets/icon-hamburger.svg";
 import { useState } from "react";
@@ -20,6 +20,8 @@ export default function Header() {
     setDisplayMenu(!displayMenu);
   };
 
+  const location = useLocation();
+
   return (
     <>
       <HeaderElement>
@@ -27,18 +29,21 @@ export default function Header() {
         <HamburgerIcon onClick={displayNavigation} src={Hamburger} />
         <ULForTablet>
           {navigation.map((planet) => {
+            const isActive = location.pathname === `/${planet.name}`;
             return (
               <li key={planet.name}>
                 <Link
                   style={{
                     all: "unset",
-                    color: "#ffffff73",
+                    color: isActive ? "white" : "#ffffff73",
+                    borderTop: isActive ? `4px solid ${planet.color}` : "",
                     fontSize: "1.5rem",
                     fontFamily: "League Spartan",
                     display: "flex",
                     alignItems: "center",
                     gap: "1rem",
                     cursor: "pointer",
+                    padding: "2rem 1rem",
                   }}
                   to={planet.name}>
                   {planet.name}
@@ -152,5 +157,6 @@ const ULForTablet = styled.ul`
     gap: 3.3rem;
     justify-content: end;
     font-family: "League Spartan";
+    height: 100%;
   }
 `;
