@@ -46,9 +46,25 @@ body {
   border: none;
 }
 
+.images-div {
+  position: relative;
+}
+
+.surface-img {
+  width: 4rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media only screen and (min-width: 48rem) {
   .inner-info {
     font-size: 2.4rem;
+  }
+
+  .surface-img {
+    width: 10rem;
+    bottom: -5.4rem;
   }
 }
 
@@ -59,5 +75,10 @@ body {
 
   .inner-info {
     font-size: 4rem;
+  }
+
+  .surface-img {
+    width: 16rem;
+    bottom: -6.4rem;
   }
 }

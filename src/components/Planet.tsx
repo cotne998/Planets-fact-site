@@ -56,13 +56,22 @@ export default function Planet() {
       </FilterSection>
       <PlanetInfoSection>
         <Wrap>
-          {planet && (
-            <PlanetImg
-              src={planet.images.planet}
-              alt="planet image"
-              size={planet.styles.size}
-            />
-          )}
+          <div className="images-div">
+            {planet && (
+              <PlanetImg
+                src={
+                  activeFilter.structure
+                    ? planet.images.internal
+                    : planet.images.planet
+                }
+                alt="planet image"
+                size={planet.styles.size}
+              />
+            )}
+            {activeFilter.surface ? (
+              <img className="surface-img" src={planet?.images.geology} />
+            ) : null}
+          </div>
           <TextFilter>
             <TextWrap>
               <PlanetName>{planet?.name}</PlanetName>
@@ -208,6 +217,7 @@ const PlanetImg = styled.img<{
   };
 }>`
   display: block;
+  position: relative;
   width: ${({ size }) => size.mobile.width};
   height: ${({ size }) => size.mobile.height};
   margin: auto;
@@ -374,4 +384,8 @@ const FilterButtonTablet = styled.button`
   text-align: left;
   font-size: 0.9rem;
   cursor: pointer;
+
+  &:hover {
+    background-color: #d8d8d86c;
+  }
 `;
