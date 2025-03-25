@@ -32,6 +32,10 @@
         "tablet": {
           "width": "18.4rem",
           "height": "18.4rem"
+        },
+        "desktop": {
+          "width": "29rem",
+          "height": "29rem"
         }
       }
     }
@@ -69,6 +73,10 @@
         "tablet": {
           "width": "25.3rem",
           "height": "25.3rem"
+        },
+        "desktop": {
+          "width": "40rem",
+          "height": "40rem"
         }
       }
     }
@@ -106,6 +114,10 @@
         "tablet": {
           "width": "28.5rem",
           "height": "28.5rem"
+        },
+        "desktop": {
+          "width": "45rem",
+          "height": "45rem"
         }
       }
     }
@@ -143,6 +155,10 @@
         "tablet": {
           "width": "21.3rem",
           "height": "21.3rem"
+        },
+        "desktop": {
+          "width": "33.6rem",
+          "height": "33.6rem"
         }
       }
     }
@@ -180,6 +196,10 @@
         "tablet": {
           "width": "36.9rem",
           "height": "36.9rem"
+        },
+        "desktop": {
+          "width": "58.2rem",
+          "height": "58.2rem"
         }
       }
     }
@@ -217,6 +237,10 @@
         "tablet": {
           "width": "42.2rem",
           "height": "42.2rem"
+        },
+        "desktop": {
+          "width": "66.6rem",
+          "height": "66.6rem"
         }
       }
     }
@@ -254,6 +278,10 @@
         "tablet": {
           "width": "29rem",
           "height": "29rem"
+        },
+        "desktop": {
+          "width": "45.8rem",
+          "height": "45.8rem"
         }
       }
     }
@@ -291,6 +319,10 @@
         "tablet": {
           "width": "28.5rem",
           "height": "28.5rem"
+        },
+        "desktop": {
+          "width": "45rem",
+          "height": "45rem"
         }
       }
     }

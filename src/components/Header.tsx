@@ -95,11 +95,20 @@ const HeaderElement = styled.header`
     gap: 3.9rem;
     padding-bottom: 2.7rem;
   }
+
+  @media only screen and (min-width: 90rem) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.8rem;
   color: white;
+
+  @media only screen and (min-width: 90rem) {
+    width: 20.9rem;
+  }
 `;
 
 const HamburgerIcon = styled.img`
@@ -134,6 +143,14 @@ const ULForTablet = styled.ul`
     gap: 2rem;
     width: 100%;
     justify-content: space-around;
+    font-family: "League Spartan";
+  }
+
+  @media only screen and (min-width: 90rem) {
+    gap: unset;
+    width: 100%;
+    gap: 3.3rem;
+    justify-content: end;
     font-family: "League Spartan";
   }
 `;
