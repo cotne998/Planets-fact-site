@@ -41,3 +41,9 @@ body {
   border-radius: 50%;
   border: none;
 }
+
+@media only screen and (min-width: 48rem) {
+  .inner-info {
+    font-size: 2.4rem;
+  }
+}

@@ -25,6 +25,28 @@ export default function Header() {
       <HeaderElement>
         <Title>THE PLANETS</Title>
         <HamburgerIcon onClick={displayNavigation} src={Hamburger} />
+        <ULForTablet>
+          {navigation.map((planet) => {
+            return (
+              <li key={planet.name}>
+                <Link
+                  style={{
+                    all: "unset",
+                    color: "#ffffff73",
+                    fontSize: "1.5rem",
+                    fontFamily: "League Spartan",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    cursor: "pointer",
+                  }}
+                  to={planet.name}>
+                  {planet.name}
+                </Link>
+              </li>
+            );
+          })}
+        </ULForTablet>
       </HeaderElement>
       <Nav onClick={() => setDisplayMenu(false)} displayMenu={displayMenu}>
         <ul style={{ marginTop: "1rem" }} className="menu">
@@ -66,6 +88,13 @@ const HeaderElement = styled.header`
   z-index: 20;
   position: relative;
   border-bottom: 1px solid #ffffff51;
+
+  @media only screen and (min-width: 48rem) {
+    justify-content: center;
+    flex-direction: column;
+    gap: 3.9rem;
+    padding-bottom: 2.7rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -75,6 +104,10 @@ const Title = styled.h1`
 
 const HamburgerIcon = styled.img`
   cursor: pointer;
+
+  @media only screen and (min-width: 48rem) {
+    display: none;
+  }
 `;
 
 const Nav = styled.nav<{ displayMenu: boolean }>`
@@ -91,4 +124,16 @@ const Nav = styled.nav<{ displayMenu: boolean }>`
 const List = styled.li`
   border-bottom: 1px solid #ffffff51;
   padding: 2rem;
+`;
+
+const ULForTablet = styled.ul`
+  display: none;
+
+  @media only screen and (min-width: 48rem) {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-around;
+    font-family: "League Spartan";
+  }
 `;

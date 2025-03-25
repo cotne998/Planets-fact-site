@@ -28,6 +28,10 @@
         "mobile": {
           "width": "11.1rem",
           "height": "11.1rem"
+        },
+        "tablet": {
+          "width": "18.4rem",
+          "height": "18.4rem"
         }
       }
     }
@@ -61,6 +65,10 @@
         "mobile": {
           "width": "15.4rem",
           "height": "15.4rem"
+        },
+        "tablet": {
+          "width": "25.3rem",
+          "height": "25.3rem"
         }
       }
     }
@@ -94,6 +102,10 @@
         "mobile": {
           "width": "17.3rem",
           "height": "17.3rem"
+        },
+        "tablet": {
+          "width": "28.5rem",
+          "height": "28.5rem"
         }
       }
     }
@@ -127,6 +139,10 @@
         "mobile": {
           "width": "12.9rem",
           "height": "12.9rem"
+        },
+        "tablet": {
+          "width": "21.3rem",
+          "height": "21.3rem"
         }
       }
     }
@@ -160,6 +176,10 @@
         "mobile": {
           "width": "22.4rem",
           "height": "22.4rem"
+        },
+        "tablet": {
+          "width": "36.9rem",
+          "height": "36.9rem"
         }
       }
     }
@@ -193,6 +213,10 @@
         "mobile": {
           "width": "25.6rem",
           "height": "25.6rem"
+        },
+        "tablet": {
+          "width": "42.2rem",
+          "height": "42.2rem"
         }
       }
     }
@@ -226,6 +250,10 @@
         "mobile": {
           "width": "17.6rem",
           "height": "17.6rem"
+        },
+        "tablet": {
+          "width": "29rem",
+          "height": "29rem"
         }
       }
     }
@@ -259,6 +287,10 @@
         "mobile": {
           "width": "17.3rem",
           "height": "17.3rem"
+        },
+        "tablet": {
+          "width": "28.5rem",
+          "height": "28.5rem"
         }
       }
     }

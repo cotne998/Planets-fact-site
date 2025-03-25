@@ -59,34 +59,88 @@ export default function Planet() {
           <PlanetImg
             src={planet.images.planet}
             alt="planet image"
-            width={planet.styles.size.mobile.width}
-            height={planet.styles.size.mobile.height}
+            size={planet.styles.size}
           />
         )}
-        <TextWrap>
-          <PlanetName>{planet?.name}</PlanetName>
-          <TextContent>
-            {activeFilter.overview
-              ? planet?.overview.content
-              : activeFilter.structure
-              ? planet?.structure.content
-              : planet?.geology.content}
-          </TextContent>
-          <Source>
-            Source:{" "}
-            <a
-              style={{ color: "#ffffffce" }}
-              href={
-                activeFilter.overview
-                  ? planet?.overview.source
-                  : activeFilter.structure
-                  ? planet?.structure.source
-                  : planet?.geology.source
+        <TextFilter>
+          <TextWrap>
+            <PlanetName>{planet?.name}</PlanetName>
+            <TextContent>
+              {activeFilter.overview
+                ? planet?.overview.content
+                : activeFilter.structure
+                ? planet?.structure.content
+                : planet?.geology.content}
+            </TextContent>
+            <Source>
+              Source:{" "}
+              <a
+                style={{ color: "#ffffffce" }}
+                href={
+                  activeFilter.overview
+                    ? planet?.overview.source
+                    : activeFilter.structure
+                    ? planet?.structure.source
+                    : planet?.geology.source
+                }>
+                Wikipedia
+              </a>
+            </Source>
+          </TextWrap>
+          <FilterSectionTablet>
+            <FilterButtonTablet
+              style={{
+                backgroundColor: activeFilter.overview
+                  ? planet?.styles.color
+                  : "",
+                transition: "0.2s",
+              }}
+              color={planet?.styles.color}
+              onClick={() =>
+                setActiveFilter({
+                  overview: true,
+                  structure: false,
+                  surface: false,
+                })
               }>
-              Wikipedia
-            </a>
-          </Source>
-        </TextWrap>
+              OVERVIEW
+            </FilterButtonTablet>
+            <FilterButtonTablet
+              style={{
+                backgroundColor: activeFilter.structure
+                  ? planet?.styles.color
+                  : "",
+                transition: "0.2s",
+              }}
+              color={planet?.styles.color}
+              onClick={() =>
+                setActiveFilter({
+                  overview: false,
+                  structure: true,
+                  surface: false,
+                })
+              }>
+              INTERNAL STRUCTURE
+            </FilterButtonTablet>
+            <FilterButtonTablet
+              style={{
+                backgroundColor: activeFilter.surface
+                  ? planet?.styles.color
+                  : "",
+                transition: "0.2s",
+              }}
+              color={planet?.styles.color}
+              onClick={() =>
+                setActiveFilter({
+                  overview: false,
+                  structure: false,
+                  surface: true,
+                })
+              }>
+              SURFACE GEOLOGY
+            </FilterButtonTablet>
+          </FilterSectionTablet>
+        </TextFilter>
         <AverageInfo>
           <InnerWrap>
             <span className="inner-info-title">ROTATION TIME</span>
@@ -117,6 +171,10 @@ const FilterSection = styled.section`
   border-top: 1px solid #ffffff51;
   padding: 0 2.4rem;
   border-bottom: 1px solid #ffffff51;
+
+  @media only screen and (min-width: 48rem) {
+    display: none;
+  }
 `;
 
 const FilterButton = styled.button<{ isActive: boolean; color?: string }>`
@@ -124,7 +182,7 @@ const FilterButton = styled.button<{ isActive: boolean; color?: string }>`
   color: ${(props) => (props.isActive ? "white" : "#ffffff9a")};
   font-size: 0.9rem;
   letter-spacing: 1.93px;
-  padding: 2rem 0;
+  padding: 2rem 0.9rem;
   cursor: pointer;
   position: relative;
 
@@ -140,11 +198,22 @@ const FilterButton = styled.button<{ isActive: boolean; color?: string }>`
   }
 `;
 
-const PlanetImg = styled.img`
+const PlanetImg = styled.img<{
+  size: {
+    mobile: { width: string; height: string };
+    tablet: { width: string; height: string };
+    desktop?: { width: string; height: string };
+  };
+}>`
   display: block;
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${({ size }) => size.mobile.width};
+  height: ${({ size }) => size.mobile.height};
   margin: auto;
+
+  @media only screen and (min-width: 48rem) {
+    width: ${({ size }) => size.tablet.width};
+    height: ${({ size }) => size.tablet.height};
+  }
 `;
 
 const TextWrap = styled.div`
@@ -152,12 +221,22 @@ const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  @media only screen and (min-width: 48rem) {
+    text-align: left;
+    max-width: 34rem;
+  }
 `;
 
 const PlanetName = styled.h2`
   color: white;
   font-size: 4rem;
   margin-top: 6.7rem;
+
+  @media only screen and (min-width: 48rem) {
+    margin: 0;
+    font-size: 4.8rem;
+  }
 `;
 
 const TextContent = styled.p`
@@ -165,6 +244,10 @@ const TextContent = styled.p`
   line-height: 2.2rem;
   color: #ffffffd5;
   font-family: "League Spartan";
+
+  @media only screen and (min-width: 48rem) {
+    margin: 0;
+  }
 `;
 
 const Source = styled.p`
@@ -173,6 +256,10 @@ const Source = styled.p`
 
 const PlanetInfoSection = styled.section`
   padding: 6.4rem 2.4rem 4.7rem;
+
+  @media only screen and (min-width: 48rem) {
+    padding: 9.4rem 3.9rem 3.6rem;
+  }
 `;
 
 const AverageInfo = styled.div`
@@ -181,6 +268,11 @@ const AverageInfo = styled.div`
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 2.8rem;
+
+  @media only screen and (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const InnerWrap = styled.div`
@@ -190,4 +282,41 @@ const InnerWrap = styled.div`
   align-items: center;
   padding: 1.3rem 2.4rem;
   border: 1px solid #ffffff9a;
+
+  @media only screen and (min-width: 48rem) {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.8rem;
+  }
+`;
+
+const FilterSectionTablet = styled.div`
+  display: none;
+
+  @media only screen and (min-width: 48rem) {
+    display: flex;
+    flex-direction: column;
+    width: 28.1rem;
+    gap: 1.6rem;
+  }
+`;
+
+const TextFilter = styled.div`
+  @media only screen and (min-width: 48rem) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 13rem;
+  }
+`;
+
+const FilterButtonTablet = styled.button`
+  width: 100%;
+  border: 0.5px solid #ffffff69;
+  background-color: transparent;
+  color: white;
+  padding: 0.8rem 2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
 `;
